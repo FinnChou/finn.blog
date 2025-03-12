@@ -2,7 +2,9 @@
 layout: post
 title: "2.使用窗函数设计FIR滤波器"
 date: 2013-05-24 14:25:02 +0800
-tags: 数字信号处理
+categories: 数字信号处理
+tags: [FIR滤波器, 窗函数]
+math: true
 # categories: jekyll update
 ---
 

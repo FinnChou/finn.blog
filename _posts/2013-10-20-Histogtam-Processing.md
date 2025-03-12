@@ -2,7 +2,9 @@
 layout: post
 title: "Histogtam-Processing : 直方图处理"
 date: 2013-10-20 15:47:36 +0800
-tags: 数字图像处理
+categories: 数字图像处理
+tags: [图像处理, 直方图处理]
+math: true
 # categories: jekyll update
 ---
 

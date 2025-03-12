@@ -2,7 +2,9 @@
 layout: post
 title: "5.IIR滤波器的间接设计"
 date: 2013-06-10 12:46:10 +0800
-tags: 数字信号处理
+categories: 数字信号处理
+tags: [IIR滤波器, 巴特沃斯滤波器]
+math: true
 # categories: jekyll update
 ---
 

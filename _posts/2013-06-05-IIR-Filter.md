@@ -2,7 +2,9 @@
 layout: post
 title: "4.IIR滤波器基础"
 date: 2013-06-05 22:28:16 +0800
-tags: 数字信号处理
+categories: 数字信号处理
+tags: [IIR滤波器, 滤波器设计]
+math: true
 # categories: jekyll update
 ---
 

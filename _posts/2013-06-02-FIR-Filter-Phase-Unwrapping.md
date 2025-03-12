@@ -2,7 +2,9 @@
 layout: post
 title: "[番外]相位特性解卷绕"
 date: 2013-06-02 18:19:42  +0800
-tags: 数字信号处理
+categories: 数字信号处理
+tags: [FIR滤波器, 相位解卷绕]
+math: true
 # categories: jekyll update
 ---
 

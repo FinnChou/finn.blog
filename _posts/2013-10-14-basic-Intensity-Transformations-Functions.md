@@ -2,7 +2,9 @@
 layout: post
 title: "Intensity Transformations : 灰度变换"
 date: 2013-10-14 16:54:36 +0800
-tags: 数字图像处理
+categories: 数字图像处理
+tags: [图像处理, 灰度变换]
+math: true
 # categories: jekyll update
 ---
 
@@ -26,6 +28,7 @@ $$
 $$
 
 负片变换，主要用于观察过黑的图片，负片变换之后，方便观察。很简单的变换。
+
 ![图像负片变换示例](/assets/resource/basic-Intensity-Transformations-Functions/Image-Negativates.jpeg){: width="600" height="600"}
 
 
@@ -41,9 +44,11 @@ $$
 $$
 
 这里的对数变换，底数为$v + 1$，实际计算的时候，需要用换底公式。其输入满足$src_{(x,y)} \in [0, 1]$，其输出亦满足$res_{(x,y)} \in [0, 1]$。对于不同的底数，其对应的变换曲线如下图所示。
+
 ![对数变换绘制曲线](/assets/resource/basic-Intensity-Transformations-Functions/Log-Transformations.jpeg){: width="300" height="300"}
 
 底数越大，对低灰度部分的强调就越强，对高灰度部分的压缩也就越强。相反的，如果想强调高灰度部分，则用反对数函数就可以了。看下面的实验就可以很直观的理解，下图是某图像的二维傅里叶变换图像，其为了使其灰度部分较为明显，一般都会使用灰度变换处理一下。
+
 ![对数变换傅里叶示例](/assets/resource/basic-Intensity-Transformations-Functions/Log-Transformations-FFT.jpeg){: width="600" height="600"}
 
 实现对数变换的Matlab代码如下：
@@ -96,12 +101,14 @@ $$
 $$
 
 其输入满足$src_{(x,y)} \in [0, 1]$，其输出亦满足$res_{(x,y)} \in [0, 1]$。 对于不同的伽马值，其对应的变换曲线如下图所示。
+
 ![伽马变换绘制曲线](/assets/resource/basic-Intensity-Transformations-Functions/Gamma-Transformations.jpeg){: width="300" height="300"}
 
 
 和对数变换一样，伽马变换可以强调图像的某个部分。根据下面两个实验，可以看出伽马变换的作用。
 
 #### 实验1 :
+
 ![伽马变换示例1](/assets/resource/basic-Intensity-Transformations-Functions/Gamma-Transformations-t1.jpeg){: width="600" height="600"}
 
 ```matlab
@@ -127,6 +134,7 @@ xlabel('b).Gamma Transformations \gamma = 0.4');
 ```
 
 #### 实验2 :
+
 ![伽马变换示例2](/assets/resource/basic-Intensity-Transformations-Functions/Gamma-Transformations-t2.jpeg){: width="600" height="600"}
 
 
@@ -157,6 +165,7 @@ res = mat2gray(src, [1/(1+(m/eps)^E) 1/(1+(m/1+eps)^E)]);
 ```
 
 输入输出问题已经解决，但仍然存在一个待处理的问题，即参数的确定。这里涉及两个参数：$m$（对于巴特沃斯高通滤波器而言，这是截止频率）和$E$（同样是针对巴特沃斯高通滤波器，这是滤波器的次数）。参数$m$可以调节变换曲线的重心，而$E$则影响曲线的斜率，如下图所示。
+
 ![对比度拉伸曲线](/assets/resource/basic-Intensity-Transformations-Functions/Contrast-Stretching.jpeg){: width="600" height="600"}
 
 $m$值的可取图像灰度分布的中央值，如下式所示，
@@ -180,9 +189,11 @@ E &= ceil(min(E_{1}, E_{2})
 $$
 
 #### 实验:
+
 ![对比度拉伸示例](/assets/resource/basic-Intensity-Transformations-Functions/Contrast-Stretching-t1.jpeg){: width="600" height="600"}
 
 从直方图看，原图的灰度范围确实被拉伸了。用上面所说的方法，确定的灰度拉伸的输入输出曲线如下图所示。
+
 ![对比度拉伸曲线示例](/assets/resource/basic-Intensity-Transformations-Functions/Contrast-Stretching-t1-curve.jpeg){: width="300" height="300"}
 
 其Matlab代码如下：
@@ -252,9 +263,11 @@ ylabel('Onput intensity level');
 #### 灰度切割 (Intensity-level Slicing)
 <hr style="border: 2px solid #ccc; margin: 20px 0;">
 灰度切割也是一个很简单，但也很实用的变换。灰度切割，主要用于强调图像的某一部份，将这个部分赋为一个较高的灰度值，其变换对应关系如下所示。
+
 ![灰度切割方法](/assets/resource/basic-Intensity-Transformations-Functions/Intensity-level-Slicing.jpeg){: width="600" height="600"}
 
 灰度切割有以上两种方法，一种是特定灰度值的部分赋值为一个较高的灰度值，其余部分为一个较低的灰度值。这样的方法，得到的结果是一个二值化图像。另外一种方法，则是仅仅强调部分赋值为一个较高的灰度值，其余的部分不变。
+
 ![灰度切割示例](/assets/resource/basic-Intensity-Transformations-Functions/Intensity-level-Slicing-t1.jpeg){: width="600" height="600"}
 
 
@@ -262,6 +275,7 @@ ylabel('Onput intensity level');
 #### 位图切割 (Bit-plance Slicing)
 <hr style="border: 2px solid #ccc; margin: 20px 0;">
 位图切割，就是按照图像的位，将图像分层处理。若图像的某个像素，其bit7为1，则在位面7这个像素值为1，反之则为0。
+
 ![位图切割示例](/assets/resource/basic-Intensity-Transformations-Functions/Bit-plance-Slicing.jpeg){: width="600" height="600"}
 
 由位图切割的结果，图像的主要信息包含在了高4位。仅仅靠高4位，还原的图像更原图基本差不多。由此可见，位图切割主要用于图像压缩。
