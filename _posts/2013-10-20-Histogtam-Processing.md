@@ -38,10 +38,10 @@ $$
 <table>
     <tr>
         <td> 
-            ![原始直方图](/assets/resource/Histogtam-Processing/Histogtam-Original.jpeg){: width="600" height="600"}
+            <img src="{{ site.baseurl }}/assets/resource/Histogtam-Processing/Histogtam-Original.jpeg" alt="原始直方图" width="600" height="600">
         </td>
         <td> 
-            ![目标PDF分布](/assets/resource/Histogtam-Processing/Histogtam-PDF-target.jpeg){: width="600" height="600"}
+            <img src="{{ site.baseurl }}/assets/resource/Histogtam-Processing/Histogram-Equalization-PDF.jpeg" alt="目标PDF分布" width="600" height="600">
         </td>
     </tr>
 </table> 
@@ -170,10 +170,10 @@ ylabel('P_{s}(s)');
 <table>
     <tr>
         <td> 
-            ![原始直方图](/assets/resource/Histogtam-Processing/Histogtam-Original.jpeg){: width="600" height="600"}
+            <img src="{{ site.baseurl }}/assets/resource/Histogtam-Processing/Histogtam-Original.jpeg" alt="原始直方图" width="600" height="600">
         </td>
         <td> 
-            ![目标PDF分布](/assets/resource/Histogtam-Processing/Histogram-Equalization-PDF.jpeg){: width="600" height="600"}
+            <img src="{{ site.baseurl }}/assets/resource/Histogtam-Processing/Histogram-Equalization-PDF.jpeg" alt="目标PDF分布" width="600" height="600">
         </td>
     </tr>
 </table> 
