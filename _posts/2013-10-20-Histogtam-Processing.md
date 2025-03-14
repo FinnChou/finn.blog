@@ -170,10 +170,10 @@ ylabel('P_{s}(s)');
 <table>
     <tr>
         <td> 
-            <img src="{{ site.baseurl }}/assets/resource/Histogtam-Processing/Histogtam-Original.jpeg" alt="原始直方图" width="600" height="600">
+            <img src="/assets/resource/Histogtam-Processing/Histogtam-Original.jpeg" alt="原始直方图" width="600" height="600">
         </td>
         <td> 
-            <img src="{{ site.baseurl }}/assets/resource/Histogtam-Processing/Histogram-Equalization-PDF.jpeg" alt="目标PDF分布" width="600" height="600">
+            <img src="/assets/resource/Histogtam-Processing/Histogram-Equalization-PDF.jpeg" alt="目标PDF分布" width="600" height="600">
         </td>
     </tr>
 </table> 
