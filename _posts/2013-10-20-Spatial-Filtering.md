@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Spatial-Filtering : 空间滤波"
+title: "Spatial Filtering : 空间滤波"
 date: 2013-10-20 17:28:04 +0800
 categories: 数字图像处理
 tags: [图像处理, 空间滤波]
