@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Frequency Domain Filter : 低通滤波"
-date: 2013-10-29 13:07:29 +0800
+date: 2013-12-08 12:42:43 +0800
 categories: 数字图像处理
 tags: [图像处理, 低通滤波, 频域滤波]
 math: true
