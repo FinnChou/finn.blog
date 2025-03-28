@@ -17,7 +17,7 @@ math: true
 ### 理想插值处理的理论基础
 为了深入理解插值处理，我们先从模拟信号的角度进行分析。假设我们有一个模拟信号 $f(t)$，如下图所示：
 
-![示例模拟信号](/assets/resource/Image-Resize-1/20131116213835500.jpeg){: width="450" height="450"}
+![Example Analog Signal](/assets/resource/Image-Resize-1/example_analog_signal.jpeg){: width="450" height="450"}
 
 左图展示了模拟信号在时域的表现，右图则是其频谱。虽然图像略显粗糙，但这不影响我们的分析。对这个信号进行采样，可以得到：
 
@@ -39,17 +39,17 @@ $$
 
 观察上式，我们可以发现离散信号的振幅谱呈现周期性变化，如下图所示：
 
-![示例数字信号](/assets/resource/Image-Resize-1/20131116215207234.jpeg){: width="450" height="450"}
+![Example Digital Signal](/assets/resource/Image-Resize-1/example_digital_signal.jpeg){: width="450" height="450"}
 
 这里，我们使用 $\Delta T$ 作为采样时间间隔。通常，我们会将振幅谱归一化，使横轴变为归一化频率。归一化后的振幅谱中，相邻波峰之间的频率差为 $2\pi$。
 
 为了说明理想插值的概念，我们考虑两个不同的采样信号。首先，当采样间隔为 $\Delta T = \frac{1}{2\mu_{m}}$ 时，得到信号①：
 
-![数字信号采样①](/assets/resource/Image-Resize-1/20131116222543062.jpeg){: width="450" height="450"}
+![Digital Signal Sample 1](/assets/resource/Image-Resize-1/digital_signal_sample_1.jpeg){: width="450" height="450"}
 
 然后，将采样间隔减小一半（即采样频率提高一倍），即 $\Delta T = \frac{1}{\mu_{m}}$，得到信号②：
 
-![数字信号采样②](/assets/resource/Image-Resize-1/20131116223024437.jpeg){: width="450" height="450"}
+![Digital Signal Sample 2](/assets/resource/Image-Resize-1/digital_signal_sample_2.jpeg){: width="450" height="450"}
 
 对比这两个信号，我们可以发现：
 - 两个信号的波峰之间的归一化频率差都是 $2\pi$
@@ -57,11 +57,11 @@ $$
 
 因此，理想插值处理的定义是：如果能够通过某种处理将信号①转换为信号②，这种处理就称为理想插值。如下图所示：
 
-![理想的插值处理](/assets/resource/Image-Resize-1/20131116223404312.jpeg){: width="450" height="450"}
+![Ideal Interpolation](/assets/resource/Image-Resize-1/ideal_interpolation.jpeg){: width="450" height="450"}
 
 从频域角度观察理想插值处理，如下图所示：
 
-![理想的插值处理的频域表现](/assets/resource/Image-Resize-1/20131116235509703.jpeg){: width="600" height="600"}
+![Frequency Domain Analysis](/assets/resource/Image-Resize-1/frequency_domain_analysis.jpeg){: width="600" height="600"}
 
 左图是信号①的频谱，右图是信号②的频谱。理想插值操作的目标是将左侧频谱转换为右侧频谱。
 
@@ -72,7 +72,7 @@ $$
 
 插入零值采样点后，新信号在频率轴上已经与目标信号对齐。如果能够将中间信号频谱中 $\pi$ 处的成分完全衰减，并将剩余部分放大2倍，就能得到目标信号。这种在频域中同时进行衰减和放大的操作，正是滤波器的作用。因此，实现理想插值需要如下所示的滤波器：
 
-![理想的插值处理所需要的滤波器](/assets/resource/Image-Resize-1/20131116224959734.jpeg){: width="450" height="450"}
+![Ideal Interpolation Filter](/assets/resource/Image-Resize-1/ideal_interpolation_filter.jpeg){: width="450" height="450"}
 
 根据上图滤波器的振幅特性，我们可以看出实现理想插值需要理想滤波器。然而，正如我们在数字信号处理中所知，由于理想滤波器的单位冲击响应是无限的，因此理想滤波器是无法实现的。这意味着理想插值处理也是无法实现的，我们只能通过接近理想滤波器的方法来实现。因此，插值方法的好坏可以通过其等效滤波器的振幅特性与理想滤波器的接近程度来判断。
 
@@ -81,7 +81,7 @@ $$
 #### 零次保持法
 零次保持法，也称为最近邻插值法，是最简单的插值方法。
 
-![零次保持法](/assets/resource/Image-Resize-1/20131117000501234.jpeg){: width="450" height="450"}
+![Zero-Order Hold](/assets/resource/Image-Resize-1/zero_order_hold.jpeg){: width="450" height="450"}
 
 左图是输入信号$f(t)$，右图是输出信号$g(t)$。这种方法相当于如下的一维滤波器：
 
@@ -94,7 +94,7 @@ $$
 #### 线性插值法
 线性插值法通过将相邻信号点用直线连接，并取直线上的值作为内插值。
 
-![线性插值法](/assets/resource/Image-Resize-1/20131117000501234.jpeg){: width="450" height="450"}
+![Linear Interpolation](/assets/resource/Image-Resize-1/linear_interpolation.jpeg){: width="450" height="450"}
 
 左图是输入信号$f(t)$，右图是输出信号$g(t)$。这种方法相当于如下的一维滤波器：
 
@@ -128,7 +128,7 @@ $$
 
 与线性插值法类似，当扩大倍数为$U$时，$t \in [-1, 1]$，步进值为$1/U$，得到所需的滤波器单位冲击响应。参数a用于调整插值性能，如下图所示：
 
-![Cubic Convolution 插值法](/assets/resource/Image-Resize-1/20131117132134140.jpeg){: width="450" height="450"}
+![Cubic Convolution Interpolation](/assets/resource/Image-Resize-1/cubic_convolution_interpolation.jpeg){: width="450" height="450"}
 
 #### B-Spline插值法
 B-Spline插值法使用如下的一维滤波器：
@@ -148,7 +148,7 @@ $$
 ### 插值方法性能对比
 将上述四种方法的等效滤波器和理想滤波器的振幅特性绘制如下：
 
-![插值法的振幅特性](/assets/resource/Image-Resize-1/20131117132733281.jpeg){: width="450" height="450"}
+![Amplitude Characteristics](/assets/resource/Image-Resize-1/amplitude_characteristics.jpeg){: width="450" height="450"}
 
 通过分析上图，我们可以得出以下结论：
 1. 零次保持法（最邻近插值法）的效果最差，其滤波器与理想滤波器差异最大
@@ -161,16 +161,16 @@ $$
 #### 实验图像准备
 为了验证不同插值方法的性能，我们需要准备实验用的图像。参考第二节中通过不同采样频率获得信号①和②的方法，我们制作了两张测试图像。其中图像②是图像①的理想插值结果。图像制作方法如下：
 
-![采样实验图像制作方式](/assets/resource/Image-Resize-1/20131117141604734.jpeg){: width="600" height="600"}
+![Test Image Generation](/assets/resource/Image-Resize-1/test_image_generation.jpeg){: width="600" height="600"}
 
 通过上述方法，我们得到了两张分辨率分别为256×256和512×512的测试图像：
 
-![采样实验的图像](/assets/resource/Image-Resize-1/20131117144050093.jpeg){: width="450" height="450"}
+![Test Images](/assets/resource/Image-Resize-1/test_images.jpeg){: width="450" height="450"}
 
 #### 实验流程
 本次实验主要实现图像2倍放大。为了评估插值效果，我们将放大后的图像与目标图像进行差分运算，得到差分图像。
 
-![实验顺序](/assets/resource/Image-Resize-1/20131117144055250.jpeg){: width="450" height="450"}
+![Experimental Process](/assets/resource/Image-Resize-1/experimental_process.jpeg){: width="450" height="450"}
 
 我们使用SAD（Sum of Absolute Difference，绝对差值和）作为评价指标。SAD值越大，表示插值效果越差。
 
@@ -183,7 +183,7 @@ $$
 #### 实验结果
 不同插值方法的实验结果如下：
 
-![实验结果](/assets/resource/Image-Resize-1/20131117145108593.jpeg){: width="450" height="450"}
+![Experimental Results](/assets/resource/Image-Resize-1/experimental_results.jpeg){: width="450" height="450"}
 
 #### Matlab实现代码
 ```matlab
